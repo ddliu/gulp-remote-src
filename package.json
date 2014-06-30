@@ -7,10 +7,7 @@
     "test": "gulp test"
   },
   "homepage": "https://github.com/ddliu/gulp-remote-src",
-  "author": {
-    "name": "Dong",
-    "email": "ddliuhb@gmail.com"
-  },
+  "author": "dong <ddliuhb@gmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/ddliu/gulp-remote-src.git"
@@ -24,7 +21,6 @@
       "url": "https://github.com/ddliu/gulp-remote-src/blob/master/LICENSE"
     }
   ],
-  "author": "dong <ddliuhb@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "gulp": "~3.8.5",
@@ -32,7 +28,8 @@
   },
   "dependencies": {
     "event-stream": "~3.1.5",
-    "vinyl": "~0.2.3"
+    "vinyl": "~0.2.3",
+    "request": "~2.36.0"
   },
   "keywords": [
     "gulpplugin"
