@@ -1,18 +1,40 @@
 {
   "name": "gulp-remote-src",
+  "description": "Remote gulp.src",
   "version": "0.1.0",
-  "description": "gulp.src from URL",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
-  "author": "",
+  "homepage": "https://github.com/ddliu/gulp-remote-src",
+  "author": {
+    "name": "Dong",
+    "email": "ddliuhb@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ddliu/gulp-remote-src.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ddliu/gulp-remote-src/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ddliu/gulp-remote-src/blob/master/LICENSE"
+    }
+  ],
+  "author": "dong <ddliuhb@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "~3.8.5"
+    "gulp": "~3.8.5",
+    "gulp-uglify": "~0.3.1"
   },
   "dependencies": {
     "event-stream": "~3.1.5",
     "vinyl": "~0.2.3"
-  }
+  },
+  "keywords": [
+    "gulpplugin"
+  ]
 }
