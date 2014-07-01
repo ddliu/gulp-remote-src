@@ -25,7 +25,7 @@
   "devDependencies": {
     "gulp": "~3.8.5",
     "gulp-uglify": "~0.3.1",
-    "gulp-clean": "~0.3.1",
+    "gulp-clean": "~0.3.1"
   },
   "dependencies": {
     "event-stream": "~3.1.5",
