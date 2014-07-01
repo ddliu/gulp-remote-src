@@ -1,7 +1,7 @@
 {
   "name": "gulp-remote-src",
   "description": "Remote gulp.src",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"
@@ -24,14 +24,18 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "~3.8.5",
-    "gulp-uglify": "~0.3.1"
+    "gulp-uglify": "~0.3.1",
+    "gulp-clean": "~0.3.1",
   },
   "dependencies": {
     "event-stream": "~3.1.5",
     "vinyl": "~0.2.3",
-    "request": "~2.36.0"
+    "request": "~2.36.0",
+    "through2": "~0.5.1"
   },
   "keywords": [
-    "gulpplugin"
+    "gulpplugin",
+    "remote",
+    "src"
   ]
 }

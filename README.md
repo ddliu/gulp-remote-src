@@ -20,7 +20,6 @@ var remoteSrc = require('gulp-remote-src');
 gulp.task('remote', function() {
     
 remoteSrc(['app.js', 'jquery.js'], {
-        stream: false,
         base: 'http://myapps.com/assets/',
     })
     .pipe(uglify())
@@ -34,12 +33,18 @@ remoteSrc(['app.js', 'jquery.js'], {
 
     Url base.
 
-- `stream`
+- `buffer` (default is true)
 
-    Pipe out files as stream or not. Note that some plugins does not support streaming.
+    Pipe out files as buffer or as stream. Note that some plugins does not support streaming.
 
 ## Changelog
 
 ### v0.1.0 (2014-06-30)
 
 First release.
+
+### v0.2.0 (2014-07-01)
+
+Fix streaming pipe.
+
+Add tests for streaming pipe.
