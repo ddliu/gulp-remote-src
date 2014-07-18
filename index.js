@@ -22,22 +22,26 @@ module.exports = function(urls, options) {
     }
 
     return es.readArray(urls).pipe(es.map(function(data, cb) {
-        var url = options.base + data;
+        var url = options.base + data, requestOptions = {url: url};
+
+        if (options.strictSSL !== null) {
+            requestOptions.strictSSL = options.strictSSL;
+        }
+
         if (!options.buffer) {
             var file = new File({
                 cwd: '/',
                 base: options.base,
                 path: url,
                 // request must be piped out once created, or we'll get this error: "You cannot pipe after data has been emitted from the response."
-                contents: request(url).pipe(through2()) 
+                contents: request(requestOptions).pipe(through2())
             });
 
             cb(null, file);
         } else {
-            request({
-                url: url,
-                encoding: null
-            }, function(error, response, body) {
+            requestOptions.encoding = null;
+
+            request(requestOptions, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
                     var file = new File({
                         cwd: '/',
