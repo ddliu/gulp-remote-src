@@ -37,6 +37,10 @@ remoteSrc(['app.js', 'jquery.js'], {
 
     Pipe out files as buffer or as stream. Note that some plugins does not support streaming.
 
+- `strictSSL` (optional)
+
+    passed to `request` to allow self signed SSL certificates
+
 ## Changelog
 
 ### v0.1.0 (2014-06-30)
