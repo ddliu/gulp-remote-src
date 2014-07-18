@@ -52,3 +52,7 @@ First release.
 Fix streaming pipe.
 
 Add tests for streaming pipe.
+
+### v0.2.1 (2014-07-18)
+
+Add option `strictSSL` (thank you [@Magomogo](https://github.com/Magomogo))
