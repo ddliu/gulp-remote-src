@@ -70,4 +70,12 @@ gulp.task('stream', ['clean'], function() {
         .pipe(gulp.dest('dist/stream'));
 });
 
-gulp.task('test', ['stream', 'nostream']);
+gulp.task('self-signed-ssl', ['clean'], function() {
+    return remoteSrc(['index.html'], {
+            strictSSL: false,
+            base: 'https://example.com/'
+        })
+        .pipe(gulp.dest('dist/stream'));
+});
+
+gulp.task('test', ['stream', 'nostream', 'self-signed-ssl']);
