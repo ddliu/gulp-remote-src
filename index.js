@@ -3,6 +3,7 @@ var es = require('event-stream');
 var request = require('request');
 var File = require('vinyl');
 var through2 = require('through2');
+var extend = require('node.extend');
 
 module.exports = function(urls, options) {
     if (options === undefined) {
@@ -21,12 +22,19 @@ module.exports = function(urls, options) {
         urls = [urls];
     }
 
-    return es.readArray(urls).pipe(es.map(function(data, cb) {
-        var url = options.base + data, requestOptions = {url: url};
+    var allowedRequestOptions = ['qs', 'headers', 'auth', 'followRedirect', 'followAllRedirects', 'maxRedirects', 'timeout', 'proxy', 
+        'strictSSL', 'aws', 'gzip']
 
-        if (options.strictSSL !== null) {
-            requestOptions.strictSSL = options.strictSSL;
+    var requestBaseOptions = {};
+    for (var i = allowedRequestOptions.length - 1; i >= 0; i--) {
+        var k = allowedRequestOptions[i];
+        if (k in options) {
+            requestBaseOptions[k] = options[k];
         }
+    }
+
+    return es.readArray(urls).pipe(es.map(function(data, cb) {
+        var url = options.base + data, requestOptions = extend({url: url}, requestBaseOptions);
 
         if (!options.buffer) {
             var file = new File({
@@ -39,6 +47,7 @@ module.exports = function(urls, options) {
 
             cb(null, file);
         } else {
+            // set encoding to `null` to return the body as buffer
             requestOptions.encoding = null;
 
             request(requestOptions, function(error, response, body) {

@@ -75,7 +75,16 @@ gulp.task('self-signed-ssl', ['clean'], function() {
             strictSSL: false,
             base: 'https://example.com/'
         })
-        .pipe(gulp.dest('dist/stream'));
+        .pipe(gulp.dest('dist/strictSSL'));
+});
+
+// run this task alone to test timeout
+gulp.task('timeout', ['clean'], function() {
+    return remoteSrc(FILES, {
+        base: URL,
+        timeout: 1
+    })
+    .pipe(gulp.dest('dist/timeout'));
 });
 
 gulp.task('test', ['stream', 'nostream', 'self-signed-ssl']);
