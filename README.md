@@ -41,7 +41,7 @@ remoteSrc(['app.js', 'jquery.js'], {
 
     Options to be passed to [request](https://github.com/mikeal/request)
 
-## Request Options
+## ~~Request Options~~
 
 DEPRECATED, use `requestOptions` instead!!!
 
