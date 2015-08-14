@@ -33,6 +33,12 @@ module.exports = function(urls, options) {
         }
     }
 
+    if (options.requestOptions) {
+        for (var k in options.requestOptions) {
+            requestBaseOptions[k] = options.requestOptions[k];
+        }
+    }
+
     return es.readArray(urls).pipe(es.map(function(data, cb) {
         var url = options.base + data, requestOptions = extend({url: url}, requestBaseOptions);
 
