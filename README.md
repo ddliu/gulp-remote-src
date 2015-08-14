@@ -37,7 +37,13 @@ remoteSrc(['app.js', 'jquery.js'], {
 
     Pipe out files as buffer or as stream. Note that some plugins does not support streaming.
 
+- `requestOptions`
+
+    Options to be passed to [request](https://github.com/mikeal/request)
+
 ## Request Options
+
+DEPRECATED, use `requestOptions` instead!!!
 
 `gulp-remote-src` uses [request](https://github.com/mikeal/request) to make HTTP request, you can specify below
 options to customize your request:
@@ -53,23 +59,3 @@ options to customize your request:
 * `strictSSL` - If `true`, requires SSL certificates be valid. **Note:** to use your own certificate authority, you need to specify an agent that was created with that CA as an option.
 * `aws` - `object` containing AWS signing information. Should have the properties `key`, `secret`. Also requires the property `bucket`, unless you’re specifying your `bucket` as part of the path, or the request doesn’t use a bucket (i.e. GET Services)
 * `gzip` - If `true`, add an `Accept-Encoding` header to request compressed content encodings from the server (if not already present) and decode supported content encodings in the response.
-
-## Changelog
-
-### v0.1.0 (2014-06-30)
-
-First release.
-
-### v0.2.0 (2014-07-01)
-
-Fix streaming pipe.
-
-Add tests for streaming pipe.
-
-### v0.2.1 (2014-07-18)
-
-Add option `strictSSL` (thank you [@Magomogo](https://github.com/Magomogo))
-
-### v0.3.0 (2014-09-02)
-
-Pass through [request](https://github.com/mikeal/request) options to make it flexible.
