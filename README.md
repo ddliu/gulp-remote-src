@@ -20,7 +20,7 @@ var remoteSrc = require('gulp-remote-src');
 gulp.task('remote', function() {
     
 remoteSrc(['app.js', 'jquery.js'], {
-        base: 'http://myapps.com/assets/',
+        base: 'http://myapps.com/assets/'
     })
     .pipe(uglify())
     .pipe(gulp.dest('./dist/'));
