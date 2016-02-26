@@ -57,7 +57,7 @@ module.exports = function(urls, options) {
             requestOptions.encoding = null;
 
             request(requestOptions, function(error, response, body) {
-                if (!error && response.statusCode == 200) {
+                if (!error && (response.statusCode >= 200 && response.statusCode < 300)) {
                     var file = new File({
                         cwd: '/',
                         base: options.base,
@@ -67,7 +67,7 @@ module.exports = function(urls, options) {
                     cb(null, file);
                 } else {
                     if (!error) {
-                        error = new Error("GET " + url + " failed with status code:" + response.statusCode);
+                        error = new Error("Request " + url + " failed with status code:" + response.statusCode);
                     }
                     cb(error);
                 }

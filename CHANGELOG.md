@@ -21,3 +21,7 @@ Pass through [request](https://github.com/mikeal/request) options to make it fle
 ### v0.4.0 (2015-08-14)
 
 Put `request` options in a single `requestOptions`.
+
+### v0.4.1 (2016-02-26)
+
+Improve response code check.

@@ -1,7 +1,7 @@
 {
   "name": "gulp-remote-src",
   "description": "Remote gulp.src",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"
