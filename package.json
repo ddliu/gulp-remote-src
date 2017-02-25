@@ -23,15 +23,15 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "gulp": "~3.8.5",
-    "gulp-uglify": "~0.3.1",
+    "gulp": "~3.9.1",
+    "gulp-uglify": "~2.0.1",
     "gulp-clean": "~0.3.1"
   },
   "dependencies": {
-    "event-stream": "~3.1.5",
-    "vinyl": "~0.2.3",
-    "request": "~2.58.0",
-    "through2": "~0.5.1",
+    "event-stream": "~3.3.4",
+    "vinyl": "~2.0.1",
+    "request": "~2.79.0",
+    "through2": "~2.0.3",
     "node.extend": "~1.1.2"
   },
   "keywords": [
