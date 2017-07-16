@@ -10,7 +10,7 @@ module.exports = function (urls, options) {
         options = {};
     }
 
-    if (typeof options.base !== 'string' ) {
+    if (typeof options.base !== 'string' && options.base !== null) {
         options.base = '/';
     }
 
@@ -40,7 +40,7 @@ module.exports = function (urls, options) {
     }
 
     return es.readArray(urls).pipe(es.map(function(data, cb) {
-        var url = options.base + data, requestOptions = extend({url: url}, requestBaseOptions);
+        var url = [options.base, data].join(''), requestOptions = extend({url: url}, requestBaseOptions);
 
         if (!options.buffer) {
             var file = new File({
