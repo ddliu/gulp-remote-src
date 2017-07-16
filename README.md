@@ -35,7 +35,7 @@ remoteSrc(['app.js', 'jquery.js'], {
 
 - `buffer` (default is true)
 
-    Pipe out files as buffer or as stream. Note that some plugins does not support streaming.
+    Pipe out files as buffer or as stream. Note that some plugins do not support streaming.
 
 - `requestOptions`
 
