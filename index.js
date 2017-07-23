@@ -5,12 +5,12 @@ var File = require('vinyl');
 var through2 = require('through2');
 var extend = require('node.extend');
 
-module.exports = function(urls, options) {
+module.exports = function (urls, options) {
     if (options === undefined) {
         options = {};
     }
 
-    if (typeof options.base !== 'string' ) {
+    if (typeof options.base !== 'string' && options.base !== null) {
         options.base = '/';
     }
 
@@ -22,8 +22,8 @@ module.exports = function(urls, options) {
         urls = [urls];
     }
 
-    var allowedRequestOptions = ['qs', 'headers', 'auth', 'followRedirect', 'followAllRedirects', 'maxRedirects', 'timeout', 'proxy', 
-        'strictSSL', 'aws', 'gzip']
+    var allowedRequestOptions = ['qs', 'headers', 'auth', 'followRedirect', 'followAllRedirects', 'maxRedirects', 'timeout', 'proxy',
+        'strictSSL', 'aws', 'gzip'];
 
     var requestBaseOptions = {};
     for (var i = allowedRequestOptions.length - 1; i >= 0; i--) {
@@ -40,7 +40,7 @@ module.exports = function(urls, options) {
     }
 
     return es.readArray(urls).pipe(es.map(function(data, cb) {
-        var url = options.base + data, requestOptions = extend({url: url}, requestBaseOptions);
+        var url = [options.base, data].join(''), requestOptions = extend({url: url}, requestBaseOptions);
 
         if (!options.buffer) {
             var file = new File({
@@ -56,7 +56,7 @@ module.exports = function(urls, options) {
             // set encoding to `null` to return the body as buffer
             requestOptions.encoding = null;
 
-            request(requestOptions, function(error, response, body) {
+            request(requestOptions, function (error, response, body) {
                 if (!error && (response.statusCode >= 200 && response.statusCode < 300)) {
                     var file = new File({
                         cwd: '/',
@@ -67,7 +67,7 @@ module.exports = function(urls, options) {
                     cb(null, file);
                 } else {
                     if (!error) {
-                        error = new Error("Request " + url + " failed with status code:" + response.statusCode);
+                        error = new Error('Request ' + url + ' failed with status code:' + response.statusCode);
                     }
                     cb(error);
                 }

@@ -33,9 +33,12 @@ remoteSrc(['app.js', 'jquery.js'], {
 
     Url base.
 
+    If you want to use absolute urls instead of relative ones, set this to
+    `null`. When not configured, `/` is assumed.
+
 - `buffer` (default is true)
 
-    Pipe out files as buffer or as stream. Note that some plugins does not support streaming.
+    Pipe out files as buffer or as stream. Note that some plugins do not support streaming.
 
 - `requestOptions`
 
