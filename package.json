@@ -28,7 +28,7 @@
     "gulp-clean": "~0.3.1"
   },
   "dependencies": {
-    "event-stream": "~3.3.4",
+    "event-stream": "3.3.4",
     "vinyl": "~2.0.1",
     "request": "~2.79.0",
     "through2": "~2.0.3",
