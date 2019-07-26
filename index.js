@@ -1,6 +1,6 @@
 var util = require('util');
 var es = require('event-stream');
-var request = require('request');
+var request = require('requestretry');
 var File = require('vinyl');
 var through2 = require('through2');
 var extend = require('node.extend');
